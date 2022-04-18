@@ -4,7 +4,7 @@
   <script xlink:href="debog.js"/>
   <style>
     :root {
-      --debogColor: #ee4a11;
+      --debogColor: #ff4000;
     }
     #Debog {
       cursor: pointer

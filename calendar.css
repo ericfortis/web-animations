@@ -1,0 +1,32 @@
+#CalendarWrap {
+	line-height: 0;
+}
+
+#CalendarWrap .Day {
+	width: calc(140px / 7);
+	height: 13px;
+	display: inline-block;
+	margin: 2px 2px 0 0;
+	animation: _kfFadeIn 120ms ease-in-out;
+	animation-fill-mode: forwards;
+	opacity: 0;
+}
+
+#CalendarWrap .Spacer {
+	visibility: hidden;
+}
+#CalendarWrap .On { 
+	background: #ff4000;
+}
+#CalendarWrap .Off {
+	background: #555;
+}
+
+@keyframes _kfFadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

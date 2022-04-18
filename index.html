@@ -35,12 +35,17 @@
 			max-width: 95%;
 			width: 480px;
 		}
+		
+		#CalendarWrap {
+			width: calc(140px + 7px * 2);
+		}
 
 		footer {
 			margin-top: 9rem;
 			color: #999;
 		}
 	</style>
+	<link rel="stylesheet" href="calendar.css">
 </head>
 <body>
 <h1>Web Animations</h1>
@@ -55,10 +60,17 @@
 	<img src="debog.svg" alt="Debog" />
 </object>
 
+
+<h2>Calendar</h2>
+<p>Animation for "Weeks Faster".</p>
+<div id="CalendarWrap"></div>
+
 <footer>
 	&copy; 2022 Eric Fortis
 	<br>
 	<a href="https://twitter.com/efortis">@efortis</a>
 </footer>
+
+<script src="calendar.js"></script>
 </body>
 </html>
