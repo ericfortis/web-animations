@@ -5,14 +5,15 @@ window.addEventListener('load', function () {
 	const cKitt = 'Kitt'
 	const cLight = 'light'
 	const cOn = 'on'
-
-	const SPEED = 166
+	
 	const N_LIGHTS = 6
-	const MAX_VAL = 0b111111 // 6 lights (1 bit per light)
-	const LEFTMOST_BIT = 1 << (N_LIGHTS - 1)
+	const SPEED_MS = 166
+
+	const binaryMaxValue = 2 ** (N_LIGHTS - 1) // 0b111111
+	const leftmostBit = 1 << (N_LIGHTS - 1)  // 0b100000
 
 	async function sleep() {
-		await new Promise(resolve => setTimeout(resolve, SPEED))
+		await new Promise(resolve => setTimeout(resolve, SPEED_MS))
 	}
 
 	const Kitt = document.querySelector('.' + cKitt)
@@ -32,7 +33,7 @@ window.addEventListener('load', function () {
 	async function animateCycle() {
 		let lights = 1
 
-		while (lights < LEFTMOST_BIT) {
+		while (lights < leftmostBit) {
 			lights = lights << 1;
 			await tick()
 		}
@@ -43,27 +44,27 @@ window.addEventListener('load', function () {
 		}
 
 		let seq2 = 1;
-		while (lights < MAX_VAL) {
+		while (lights < binaryMaxValue) {
 			seq2 = seq2 << 1
 			lights += seq2
 			await tick()
 		}
 
 		seq2 = 1
-		while (lights > LEFTMOST_BIT) {
+		while (lights > leftmostBit) {
 			lights -= seq2
 			seq2 = seq2 << 1
 			await tick()
 		}
 
-		seq2 = LEFTMOST_BIT
-		while (lights < MAX_VAL) {
+		seq2 = leftmostBit
+		while (lights < binaryMaxValue) {
 			seq2 = seq2 >> 1
 			lights += seq2
 			await tick()
 		}
 
-		seq2 = LEFTMOST_BIT
+		seq2 = leftmostBit
 		while (lights > 1) {
 			lights -= seq2
 			seq2 = seq2 >> 1
