@@ -5,11 +5,11 @@ window.addEventListener('load', function () {
 	const cKitt = 'Kitt'
 	const cLight = 'light'
 	const cOn = 'on'
-	
+
 	const SPEED = 166
 	const N_LIGHTS = 6
 	const MAX_VAL = 0b111111 // 6 lights (1 bit per light)
-	const LEFTMOST_BIT = 0b100000
+	const LEFTMOST_BIT = 1 << (N_LIGHTS - 1)
 
 	async function sleep() {
 		await new Promise(resolve => setTimeout(resolve, SPEED))
