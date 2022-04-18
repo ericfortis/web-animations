@@ -48,6 +48,7 @@
 	</style>
 	<link rel="stylesheet" href="calendar.css">
 	<link rel="stylesheet" href="kitt-like-lights.css">
+	<link rel="stylesheet" href="3d-carousel.css">
 </head>
 <body>
 <h1>Web Animations</h1>
@@ -74,6 +75,48 @@
 <div class="Kitt"></div>
 
 
+<h2>Fluid 3D Cube Carousel</h2>
+
+<div class="vpRoot">
+	<div class="CubeScene">
+		<div class="Cube">
+			<div class="cfLeft" id="Demo1">
+				<img src="media/left.svg" alt="Left"/>
+			</div>
+			<div class="cf cfFront" id="Demo2">
+				<img src="media/front.svg" alt="Front"/>
+			</div>
+			<div class="cf cfRight" id="Demo3">
+				<img src="media/right.svg" alt="Right`"/>
+			</div>
+			<div class="cf cfBack" id="Demo4">
+				<img src="media/back.svg" alt="Back`"/>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="CubeControls">
+	<button type="button" data-for="Demo1" data-cubeface="cfLeft" class="cubeRadioButton cubeSelected">
+		<span class="icon"></span>
+		<span class="title">Left</span>
+	</button>
+	<button type="button" data-for="Demo2" data-cubeface="cfFront" class="cubeRadioButton">
+		<span class="icon"></span>
+		<span class="title">Front</span>
+	</button>
+	<button type="button" data-for="Demo3" data-cubeface="cfRight" class="cubeRadioButton">
+		<span class="icon"></span>
+		<span class="title">Right</span>
+	</button>
+	<button type="button" data-for="Demo4" data-cubeface="cfBack" class="cubeRadioButton">
+		<span class="icon"></span>
+		<span class="title">Back</span>
+	</button>
+</div>
+
+
+
 <footer>
 	&copy; 2022 Eric Fortis
 	<br>
@@ -82,5 +125,6 @@
 
 <script src="calendar.js"></script>
 <script src="kitt-like-lights.js"></script>
+<script src="3d-carousel.js"></script>
 </body>
 </html>

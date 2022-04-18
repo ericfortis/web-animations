@@ -1,0 +1,7 @@
+<svg width="3840" viewBox="0 0 3840 2160" xmlns="http://www.w3.org/2000/svg">
+	<style>text { font-family: Avenir, system-ui, sans-serif }</style>
+  <rect width="3840" height="2160" fill="#4CAF50"/>
+  <text x="1920" y="1280" fill="#ffffff" font-size="588px" text-anchor="middle" >
+    Front
+  </text>
+</svg>
