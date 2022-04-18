@@ -30,8 +30,9 @@ img {
 .cubeRadioButton {
 	position: relative;
 	padding: 20px 6px 8px;
+	border: 1px solid #777;
+	border-radius: 6px;
 	background: transparent;
-	border-radius: 0;
 	color: #ccc;
 	font-size: 15px;
 	cursor: pointer;
