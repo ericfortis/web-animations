@@ -6,7 +6,7 @@ window.addEventListener('load', function () {
 	const cLight = 'light'
 	const cOn = 'on'
 	
-	const SPEED = 120
+	const SPEED = 166
 	const N_LIGHTS = 6
 	const MAX_VAL = 0b111111 // 6 lights (1 bit per light)
 	const LEFT_MOST_BIT = 0b100000
