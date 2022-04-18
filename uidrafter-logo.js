@@ -8,27 +8,27 @@ window.addEventListener('load', function () {
 		byId('L40')
 	]
 	const frameSequence = [1, 2, 3, 3, 2, 1, 0]
-	const frameDuration_ms = 16.6 * 2
+	const fps = 30
+	const frameDuration = 1000 / fps
 
 	spinLogo()
-
 	function spinLogo() {
 		Logo.removeEventListener('click', spinLogo)
+		
 		setTimeout(function () {
 			logoFrames[0].style.filter = ''
-		}, frameSequence.length * frameDuration_ms)
+		}, frameSequence.length * frameDuration)
 
 		for (let i = 0; i < frameSequence.length; i++)
-			setTimeout(render.bind(null, frameSequence[i]), i * frameDuration_ms)
-		
+			setTimeout(render.bind(null, frameSequence[i]), i * frameDuration)
+
 		setTimeout(function throttle() {
 			Logo.addEventListener('click', spinLogo)
-		}, frameSequence.length * frameDuration_ms)
+		}, frameSequence.length * frameDuration)
 
 		function render(frame) {
 			for (let i = 0; i < logoFrames.length; i++)
 				logoFrames[i].style.opacity = 0
-			
 			logoFrames[frame].style.opacity = 1
 			logoFrames[frame].style.filter = 'url(#hBlur)'
 		}
