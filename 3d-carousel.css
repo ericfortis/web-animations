@@ -18,25 +18,22 @@ img {
 }
 
 .vpRoot {
-	width: 50%;
 	position: relative;
+	width: 50%;
 	margin: 0 auto;
-	margin-top: 40px;
 }
 
 .CubeControls {
-	margin-top: 58px;
+	margin-top: 20px;
 	text-align: center;
 }
 .cubeRadioButton {
-	background: transparent;
-	border-radius: 4px;
-	border: 1px solid #555;
 	position: relative;
 	padding: 20px 6px 8px;
-	color: #aaa;
+	background: transparent;
+	border-radius: 0;
+	color: #ccc;
 	font-size: 15px;
-	opacity: .9;
 	cursor: pointer;
 	transition-property: box-shadow;
 }
@@ -49,8 +46,6 @@ img {
 .cubeRadioButton .title {
 	display: block;
 	padding: 2px 3px;
-	font-size: 1.1em;
-	font-weight: bold;
 	line-height: 1.2;
 }
 .cubeRadioButton:active:not(.cubeSelected) {
