@@ -21,8 +21,8 @@ function AnimateDebog() {
 	animateStroke(Nose, 2300)
 
 	setTimeout(function () {
-		animatePositionY(Legs, -50, 0, 220)
-	}, 2000)
+		animatePositionY(Legs, -50, 0, 180)
+	}, 1900)
 
 	document.querySelectorAll('.Letters path')
 		.forEach(function (elem, i) {
