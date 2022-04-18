@@ -15,8 +15,8 @@ function AnimateDebog() {
 
 	all.forEach(elem => elem.style.opacity = 0)
 
-	animateRotation(WingL, -360, 720 * 2, 2000)
-	animateRotation(WingR, 0, 1080 * 2, 2200)
+	animateRotation(WingL, -360, 360 * 4, 2000)
+	animateRotation(WingR, 0, 360 * 6, 2200)
 	animateStroke(Mouth, 2300)
 	animateStroke(Nose, 2300)
 
@@ -41,8 +41,8 @@ function AnimateDebog() {
 		style.opacity = 1
 		requestAnimationFrame(anim)
 		function anim() {
-			var normalizedTime = animationPercentage(start, duration)
-			var angle = easeOutQuad(normalizedTime) * (maxAngle - minAngle) + minAngle
+			const normalizedTime = animationPercentage(start, duration)
+			const angle = easeOutQuad(normalizedTime) * (maxAngle - minAngle) + minAngle
 			style.transform = `rotate(${angle}deg)`
 			if (normalizedTime < 1)
 				requestAnimationFrame(anim)
