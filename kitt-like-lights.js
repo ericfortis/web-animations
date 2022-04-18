@@ -12,7 +12,7 @@ window.addEventListener('load', function () {
 	const N_LIGHTS = 6
 	const SPEED_MS = 166
 
-	const binaryMaxValue = 2 ** (N_LIGHTS - 1) // 0b111111
+	const binaryMaxValue = 2 ** N_LIGHTS - 1 // 0b111111
 	const leftmostBit = 1 << (N_LIGHTS - 1)  // 0b100000
 
 	const Kitt = document.querySelector('.' + cKitt)
