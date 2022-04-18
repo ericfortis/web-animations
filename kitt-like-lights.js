@@ -72,10 +72,6 @@ window.addEventListener('load', function () {
 
 		async function tick() {
 			update(lights.toString(2).padStart(N_LIGHTS, '0').split('').map(Number))
-			await sleep()
-		}
-		
-		async function sleep() {
 			await new Promise(resolve => setTimeout(resolve, SPEED_MS))
 		}
 

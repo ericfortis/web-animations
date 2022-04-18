@@ -3,9 +3,9 @@
 }
 
 #CalendarWrap .Day {
+	display: inline-block;
 	width: calc(140px / 7);
 	height: 13px;
-	display: inline-block;
 	margin: 2px 2px 0 0;
 	animation: _kfFadeIn 120ms ease-in-out;
 	animation-fill-mode: forwards;
