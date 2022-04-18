@@ -3,12 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Web Animations by Eric Fortis</title>
-	<meta name="viewport" content="width=device-width">
+	<meta content="width=device-width" name="viewport">
 
 	<style>
 		html, body {
-			margin: 0;
 			padding: 0;
+			margin: 0;
 			background: #222;
 			color: #fff;
 			font-family: Avenir, system-ui, sans-serif;
@@ -27,28 +27,29 @@
 			color: #ccc;
 		}
 		p {
-			color: #aaa;
 			max-width: 440px;
+			color: #aaa;
 		}
 
 		.DebogContainer {
-			max-width: 95%;
 			width: 380px;
+			max-width: 95%;
 		}
 
 		#CalendarWrap {
-			cursor: pointer;
 			width: calc(140px + 7px * 2);
+			cursor: pointer;
 		}
 
 		footer {
+			padding: 20px 0;
 			margin-top: 11rem;
 			color: #999;
 		}
 	</style>
-	<link rel="stylesheet" href="calendar.css">
-	<link rel="stylesheet" href="kitt-like-lights.css">
-	<link rel="stylesheet" href="3d-carousel.css">
+	<link href="calendar.css" rel="stylesheet">
+	<link href="kitt-like-lights.css" rel="stylesheet">
+	<link href="3d-carousel.css" rel="stylesheet">
 </head>
 <body>
 <h1>Web Animations</h1>
@@ -60,8 +61,8 @@
 	href="https://uidrafter.com/report-issue">UI Drafter's report issue page</a>.
 	This drawing is copyrighted (don't copy it), only the code is under ISC.
 </p>
-<object class="DebogContainer" type="image/svg+xml" data="debog.svg">
-	<img src="debog.svg" alt="Debog" />
+<object class="DebogContainer" data="debog.svg" type="image/svg+xml">
+	<img alt="Debog" src="debog.svg" />
 </object>
 
 
@@ -76,10 +77,10 @@
 
 
 <h2>Marching Ants</h2>
-<svg width="240" viewBox="0 0 240 51" xmlns="http://www.w3.org/2000/svg">
-	<rect fill="#555" width="50" height="50" x="1" y="1" />
-	<rect class="marchingAnts" fill="#ff4000" width="50" height="50" x="189" y="1" stroke="#ff4000" stroke-width="2" />
-	<path class="marchingAnts" fill="none" stroke="#ff4000" stroke-width="2" d="M50,25 H190" />
+<svg viewBox="0 0 240 51" width="240" xmlns="http://www.w3.org/2000/svg">
+	<rect fill="#555" height="50" width="50" x="1" y="1" />
+	<rect class="marchingAnts" fill="#ff4000" height="50" stroke="#ff4000" stroke-width="2" width="50" x="189" y="1" />
+	<path class="marchingAnts" d="M50,25 H190" fill="none" stroke="#ff4000" stroke-width="2" />
 </svg>
 
 
@@ -89,35 +90,35 @@
 	<div class="CubeScene">
 		<div class="Cube">
 			<div class="cfLeft" id="Demo1">
-				<img src="media/left.svg" alt="Left" />
+				<img alt="Left" src="media/left.svg" />
 			</div>
 			<div class="cf cfFront" id="Demo2">
-				<img src="media/front.svg" alt="Front" />
+				<img alt="Front" src="media/front.svg" />
 			</div>
 			<div class="cf cfRight" id="Demo3">
-				<img src="media/right.svg" alt="Right`" />
+				<img alt="Right`" src="media/right.svg" />
 			</div>
 			<div class="cf cfBack" id="Demo4">
-				<img src="media/back.svg" alt="Back`" />
+				<img alt="Back`" src="media/back.svg" />
 			</div>
 		</div>
 	</div>
 </div>
 
 <div class="CubeControls">
-	<button type="button" data-for="Demo1" data-cubeface="cfLeft" class="cubeRadioButton cubeSelected">
+	<button class="cubeRadioButton cubeSelected" data-cubeface="cfLeft" data-for="Demo1" type="button">
 		<span class="icon"></span>
 		<span class="title">Left</span>
 	</button>
-	<button type="button" data-for="Demo2" data-cubeface="cfFront" class="cubeRadioButton">
+	<button class="cubeRadioButton" data-cubeface="cfFront" data-for="Demo2" type="button">
 		<span class="icon"></span>
 		<span class="title">Front</span>
 	</button>
-	<button type="button" data-for="Demo3" data-cubeface="cfRight" class="cubeRadioButton">
+	<button class="cubeRadioButton" data-cubeface="cfRight" data-for="Demo3" type="button">
 		<span class="icon"></span>
 		<span class="title">Right</span>
 	</button>
-	<button type="button" data-for="Demo4" data-cubeface="cfBack" class="cubeRadioButton">
+	<button class="cubeRadioButton" data-cubeface="cfBack" data-for="Demo4" type="button">
 		<span class="icon"></span>
 		<span class="title">Back</span>
 	</button>
