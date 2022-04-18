@@ -15,10 +15,6 @@ window.addEventListener('load', function () {
 	const binaryMaxValue = 2 ** (N_LIGHTS - 1) // 0b111111
 	const leftmostBit = 1 << (N_LIGHTS - 1)  // 0b100000
 
-	async function sleep() {
-		await new Promise(resolve => setTimeout(resolve, SPEED_MS))
-	}
-
 	const Kitt = document.querySelector('.' + cKitt)
 	for (let i = 0; i < N_LIGHTS; i++) {
 		const light = document.createElement('div')
@@ -37,16 +33,16 @@ window.addEventListener('load', function () {
 		let lights = 1
 
 		while (lights < leftmostBit) {
-			lights = lights << 1;
+			lights = lights << 1
 			await tick()
 		}
 
 		while (lights > 1) {
-			lights = lights >> 1;
+			lights = lights >> 1
 			await tick()
 		}
 
-		let seq2 = 1;
+		let seq2 = 1
 		while (lights < binaryMaxValue) {
 			seq2 = seq2 << 1
 			lights += seq2
@@ -78,9 +74,13 @@ window.addEventListener('load', function () {
 			update(lights.toString(2).padStart(N_LIGHTS, '0').split('').map(Number))
 			await sleep()
 		}
+		
+		async function sleep() {
+			await new Promise(resolve => setTimeout(resolve, SPEED_MS))
+		}
 
 		animateCycle()
 	}
-
+	
 	animateCycle()
 })
