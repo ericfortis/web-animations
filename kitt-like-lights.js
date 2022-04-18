@@ -9,7 +9,7 @@ window.addEventListener('load', function () {
 	const SPEED = 166
 	const N_LIGHTS = 6
 	const MAX_VAL = 0b111111 // 6 lights (1 bit per light)
-	const LEFT_MOST_BIT = 0b100000
+	const LEFTMOST_BIT = 0b100000
 
 	async function sleep() {
 		await new Promise(resolve => setTimeout(resolve, SPEED))
@@ -32,7 +32,7 @@ window.addEventListener('load', function () {
 	async function animateCycle() {
 		let lights = 1
 
-		while (lights < LEFT_MOST_BIT) {
+		while (lights < LEFTMOST_BIT) {
 			lights = lights << 1;
 			await tick()
 		}
@@ -50,20 +50,20 @@ window.addEventListener('load', function () {
 		}
 
 		seq2 = 1
-		while (lights > LEFT_MOST_BIT) {
+		while (lights > LEFTMOST_BIT) {
 			lights -= seq2
 			seq2 = seq2 << 1
 			await tick()
 		}
 
-		seq2 = LEFT_MOST_BIT
+		seq2 = LEFTMOST_BIT
 		while (lights < MAX_VAL) {
 			seq2 = seq2 >> 1
 			lights += seq2
 			await tick()
 		}
 
-		seq2 = LEFT_MOST_BIT
+		seq2 = LEFTMOST_BIT
 		while (lights > 1) {
 			lights -= seq2
 			seq2 = seq2 >> 1
