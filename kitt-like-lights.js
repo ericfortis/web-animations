@@ -1,6 +1,9 @@
 // KITT-like light animation
 // Original animation: https://www.youtube.com/watch?v=oNyXYPhnUIs
 
+// Each light is represented by a bit on an integer. The algorithm shifts bits left
+// or right to produce the sequence. The `on` CSS class is what makes the light shine.
+
 window.addEventListener('load', function () {
 	const cKitt = 'Kitt'
 	const cLight = 'light'
@@ -24,9 +27,9 @@ window.addEventListener('load', function () {
 	}
 
 	const Lights = Kitt.querySelectorAll('.' + cLight)
-	function print(arr) {
+	function update(lightStatesArr) {
 		Lights.forEach((light, i) => {
-			light.classList.toggle(cOn, arr[i])
+			light.classList.toggle(cOn, lightStatesArr[i])
 		})
 	}
 
@@ -72,7 +75,7 @@ window.addEventListener('load', function () {
 		}
 
 		async function tick() {
-			print(lights.toString(2).padStart(N_LIGHTS, '0').split('').map(Number))
+			update(lights.toString(2).padStart(N_LIGHTS, '0').split('').map(Number))
 			await sleep()
 		}
 
