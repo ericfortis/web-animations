@@ -42,6 +42,18 @@
 			width: calc(140px + 7px * 2);
 			cursor: pointer;
 		}
+		#InteractiveConnectionTarget {
+			width: 90%;
+			height: 240px;
+			background: #222;
+			touch-action: none; /* Prevents scrolling on touch */
+		}
+		#InteractiveConnection {
+			fill: none;
+			stroke: #ff4000;
+			stroke-width: 2px;
+		}
+
 
 		footer {
 			padding: 20px 0;
@@ -117,8 +129,17 @@
 </svg>
 
 
-<h2>Fluid 3D Cube Carousel</h2>
 
+<h2>Draw Interactive Connection</h2>
+<p>
+	This is SVG, but you can use <code>describeCurve</code> for canvas too.
+</p>
+<svg id="InteractiveConnectionTarget">
+	<path d="" id="InteractiveConnection" />
+</svg>
+
+
+<h2>Fluid 3D Cube Carousel</h2>
 <div class="vpRoot">
 	<div class="CubeScene">
 		<div class="Cube">
@@ -158,6 +179,14 @@
 </div>
 
 
+
+<h2>More</h2>
+<p>
+	<a href="https://ericfortis.github.io/web-tricks/" target="_blank">Web Tricks</a>
+</p>
+
+
+
 <footer>
 	&copy; 2022 Eric Fortis
 	<br>
@@ -166,7 +195,8 @@
 
 <script src="calendar.js"></script>
 <script src="kitt-like-lights.js"></script>
-<script src="3d-carousel.js"></script>
 <script src="marching-ants.js"></script>
+<script src="draw-interactive-connection.js"></script>
+<script src="3d-carousel.js"></script>
 </body>
 </html>
