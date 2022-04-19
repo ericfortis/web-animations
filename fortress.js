@@ -30,7 +30,7 @@ window.addEventListener('load', function () {
 	function fadeIn(element, delay) {
 		setTimeout(function () {
 			animateOpacity(element, 0, 1)
-		}, delay);
+		}, delay)
 	}
 
 	function fadeOut(element, delay) {
