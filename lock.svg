@@ -1,0 +1,9 @@
+<svg id="Lock" width="150" height="150" version="1.1" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg"
+		 xmlns:xlink="http://www.w3.org/1999/xlink">
+	<script xlink:href="lock.js"/>
+	<style>#Lock { cursor: pointer }</style>
+	<path id="LockShape"
+				d="m75 19c-20.9 0-38 17.1-38 38.9v0.95h-12.2c-1.9 0-3.8 1.9-3.8 3.8v64.6c0 1.9 1.9 3.8 3.8 3.8h100c1.9 0 3.8-1.9 3.8-3.8v-64.6c0-1.9-1.9-3.8-3.8-3.8h-12.2v-0.95c0-21.8-17.1-38.9-38-38.9zm0 7.6c17.1 0 30.4 14.2 30.4 31.3v0.95h-60.8v-0.95c0-17.1 13.3-31.3 30.4-31.3zm-17.1 52.2h33.2v6.65h-33.2zm0 11.4h33.2v6.65h-33.2zm0 11.4h33.2v6.65h-33.2z"
+				fill="#333333" stroke="#666666"/>
+	<circle cx="75" cy="31" r="4" fill="#ff4000"/>
+</svg>
