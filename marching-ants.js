@@ -1,14 +1,14 @@
-window.addEventListener('load', function () {
+(function () {
 	document.querySelectorAll('.marchingAnts').forEach(animateLine)
 
-	function animateLine(elem) {
+	function animateLine({ style }) {
 		const SPEED = 0.2
 		let offset = 0
-		elem.style.strokeDasharray = '6 2'
+		style.strokeDasharray = '6 2'
 		requestAnimationFrame(function anim() {
-			offset -= SPEED // Without this extra variable, it doesn't work in FF and Safari
-			elem.style.strokeDashoffset = offset
+			offset -= SPEED // The `offset` "extra" variable is for FF and Safari
+			style.strokeDashoffset = offset
 			requestAnimationFrame(anim)
 		})
 	}
-})
+}())
