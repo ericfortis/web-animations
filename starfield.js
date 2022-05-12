@@ -45,6 +45,7 @@ function Starfield(target) {
 		cancelAnimationFrame(raf);
 		maxX = canvas.width = target.offsetWidth
 		maxY = canvas.height = target.offsetHeight
+		stars = []
 
 		for (var i = 0; i < nStars; i++)
 			stars.push({
