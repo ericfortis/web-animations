@@ -1,4 +1,3 @@
-
 // Based on Coding Math 
 // @bit101
 // https://www.youtube.com/watch?v=OuzWDQ6zFXo
@@ -19,15 +18,6 @@ function Starfield(target) {
 
 	var TAO = Math.PI * 2
 
-	// Array-like indices for V8's fast-properties optimization.
-	var _X = 0
-	var _Y = 1
-	var _Size = 2
-	var _Vx = 3
-	var _Vy = 4
-	var _Vsize = 5
-	var _Color = 6
-
 	var canvas = document.createElement('canvas')
 	var context = canvas.getContext('2d')
 
@@ -42,20 +32,20 @@ function Starfield(target) {
 	window.addEventListener('resize', init)
 
 	function init() {
-		cancelAnimationFrame(raf);
+		cancelAnimationFrame(raf)
 		maxX = canvas.width = target.offsetWidth
 		maxY = canvas.height = target.offsetHeight
 		stars = []
 
 		for (var i = 0; i < nStars; i++)
 			stars.push({
-				[_X]: Math.random() * maxX,
-				[_Y]: Math.random() * maxY,
-				[_Size]: Math.random() * maxSize,
-				[_Vx]: Math.random() / 2,
-				[_Vy]: Math.random() * -0.2,
-				[_Vsize]: Math.random() * 0.03,
-				[_Color]: colors[i % colors.length]
+				x: Math.random() * maxX,
+				y: Math.random() * maxY,
+				vx: Math.random() / 2, // velocity
+				vy: Math.random() * -0.2,
+				size: Math.random() * maxSize,
+				dsize: Math.random() * 0.03, // delta size
+				color: colors[i % colors.length]
 			})
 		render()
 	}
@@ -65,28 +55,28 @@ function Starfield(target) {
 
 		for (var i = 0; i < nStars; i++) {
 			var star = stars[i]
-			star[_X] += star[_Vx]
-			star[_Y] += star[_Vy]
-			star[_Size] += star[_Vsize]
+			star.x += star.vx
+			star.y += star.vy
+			star.size += star.dsize
 
-			if (star[_X] > maxX)
-				star[_X] = 0
-			else if (star[_X] < 0)
-				star[_X] = maxX
+			if (star.x > maxX)
+				star.x = 0
+			else if (star.x < 0)
+				star.x = maxX
 
-			if (star[_Y] > maxY)
-				star[_Y] = 0
-			else if (star[_Y] < 0)
-				star[_Y] = maxY
+			if (star.y > maxY)
+				star.y = 0
+			else if (star.y < 0)
+				star.y = maxY
 
-			if (star[_Size] > maxSize || star[_Size] < 0) {
-				star[_Vsize] *= -1
-				star[_Size] = Math.abs(star[_Size])
+			if (star.size > maxSize || star.size < 0) {
+				star.dsize *= -1
+				star.size = Math.abs(star.size)
 			}
 
 			context.beginPath()
-			context.arc(star[_X], star[_Y], star[_Size], 0, TAO)
-			context.fillStyle = star[_Color]
+			context.arc(star.x, star.y, star.size, 0, TAO)
+			context.fillStyle = star.color
 			context.fill()
 		}
 
