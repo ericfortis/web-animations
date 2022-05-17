@@ -21,9 +21,9 @@ window.addEventListener('load', async function () {
 
 	const seq = makeKittSeq(N_LIGHTS)
 	for (; ;)
-		for (const s of seq) {
+		for (const sLine of seq) {
 			for (let i = 0; i < Lights.length; i++)
-				Lights[i].classList.toggle(cOn, s[i])
+				Lights[i].classList.toggle(cOn, sLine[i])
 			await new Promise(resolve => setTimeout(resolve, SPEED_MS)) // delay
 		}
 })
