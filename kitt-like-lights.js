@@ -22,7 +22,35 @@ window.addEventListener('load', async function () {
 				Lights[i].classList.toggle(cOn, seqLine[i])
 			await new Promise(resolve => setTimeout(resolve, SPEED_MS)) // delay
 		}
-})
+});
+
+
+(function test() {
+	const actual = makeKittSeq(3)
+	const expected = [
+		[0, 1, 0],
+		[1, 0, 0],
+		[0, 1, 0],
+		[0, 0, 1],
+		[0, 1, 1],
+		[1, 1, 1],
+		[1, 1, 0],
+		[1, 0, 0],
+		[1, 1, 0],
+		[1, 1, 1],
+		[0, 1, 1],
+		[0, 0, 1]
+	]
+
+	for (let i = 0; i < expected.length; i++) {
+		if (expected[i].length !== actual[i].length)
+			throw `FAILED: The arrays at ${i} have different number of lights`
+
+		for (let j = 0; j < expected[i].length; j++)
+			if (expected[i][j] !== actual[i][j])
+				throw `FAILED: The array at ${i} has a light at index: ${j} that doesn't match`
+	}
+}());
 
 
 // Each light state is represented by a bit on an integer. 
@@ -76,31 +104,4 @@ function makeKittSeq(nLights) {
 		.padStart(nLights, '0')
 		.split('')
 		.map(Number))
-}
-
-
-/* === TEST === */
-const actual = makeKittSeq(3)
-const expected = [
-	[0, 1, 0],
-	[1, 0, 0],
-	[0, 1, 0],
-	[0, 0, 1],
-	[0, 1, 1],
-	[1, 1, 1],
-	[1, 1, 0],
-	[1, 0, 0],
-	[1, 1, 0],
-	[1, 1, 1],
-	[0, 1, 1],
-	[0, 0, 1]
-]
-
-for (let i = 0; i < expected.length; i++) {
-	if (expected[i].length !== actual[i].length)
-		throw `FAILED: The arrays at ${i} have different number of lights`
-
-	for (let j = 0; j < expected[i].length; j++)
-		if (expected[i][j] !== actual[i][j])
-			throw `FAILED: The array at ${i} has a light at index: ${j} that doesn't match`
 }
