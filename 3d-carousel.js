@@ -40,9 +40,7 @@ function InitVideoGroups(Section) {
 let timer0
 function RotateCube(Section, faceWidth, fromFace, toFace) {
 	clearTimeout(timer0) // For fast clicking. It handles changing a video during a rotation.
-
 	const CUBE_T = 'transform ' + RotateDuration_ms + 'ms ease-in-out'
-
 	const scene = Section.getElementsByClassName(cCubeScene)[0]
 	scene.style.perspective = faceWidth * 2 + 'px'
 

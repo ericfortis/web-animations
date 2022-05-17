@@ -77,6 +77,10 @@ window.addEventListener('load', function () {
 			states.push(lights)
 		}
 
-		return states.map(lights => lights.toString(2).padStart(N_LIGHTS, '0').split('').map(Number))
+		return states.map(lights => lights
+			.toString(2)
+			.padStart(N_LIGHTS, '0')
+			.split('')
+			.map(Number))
 	}
 })
