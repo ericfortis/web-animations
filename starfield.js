@@ -8,7 +8,6 @@ function Starfield(target) {
 	if (!window.requestAnimationFrame)
 		return
 
-	var nStars = window.innerWidth / 5
 	var stars = []
 	var colors = ['#aaa', '#eee', '#fffbce']
 
@@ -33,8 +32,11 @@ function Starfield(target) {
 
 	function init() {
 		cancelAnimationFrame(raf)
-		maxX = canvas.width = target.offsetWidth
-		maxY = canvas.height = target.offsetHeight
+		var nStars = window.innerWidth / 5 | 0
+		canvas.width = target.offsetWidth
+		canvas.height = target.offsetHeight
+		maxX = target.offsetWidth
+		maxY = target.offsetHeight
 		stars = []
 
 		for (var i = 0; i < nStars; i++)
@@ -53,7 +55,7 @@ function Starfield(target) {
 	function render() {
 		context.clearRect(0, 0, maxX, maxY)
 
-		for (var i = 0; i < nStars; i++) {
+		for (var i = 0; i < stars.length; i++) {
 			var star = stars[i]
 			star.x += star.vx
 			star.y += star.vy
