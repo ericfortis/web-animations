@@ -49,31 +49,31 @@ window.addEventListener('load', function () {
 			states.push(lights)
 		}
 
-		let seq2 = 1
+		let rev = 1
 		while (lights < binaryMaxValue) {
-			seq2 = seq2 << 1
-			lights += seq2
+			rev = rev << 1
+			lights += rev
 			states.push(lights)
 		}
 
-		seq2 = 1
+		rev = 1
 		while (lights > leftmostBit) {
-			lights -= seq2
-			seq2 = seq2 << 1
+			lights -= rev
+			rev = rev << 1
 			states.push(lights)
 		}
 
-		seq2 = leftmostBit
+		rev = leftmostBit
 		while (lights < binaryMaxValue) {
-			seq2 = seq2 >> 1
-			lights += seq2
+			rev = rev >> 1
+			lights += rev
 			states.push(lights)
 		}
 
-		seq2 = leftmostBit
+		rev = leftmostBit
 		while (lights > 1) {
-			lights -= seq2
-			seq2 = seq2 >> 1
+			lights -= rev
+			rev = rev >> 1
 			states.push(lights)
 		}
 
