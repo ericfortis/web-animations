@@ -30,8 +30,8 @@ window.addEventListener('load', async function () {
 
 
 function makeKittSeq(nLights) {
-	const binaryMaxValue = 2 ** nLights - 1 // 0b111111
-	const leftmostBit = 1 << (nLights - 1)  // 0b100000
+	const binaryMaxValue = 2 ** nLights - 1 // e.g. 6 -> 0b111111
+	const leftmostBit = 1 << (nLights - 1)  // e.g. 6 -> 0b100000
 
 	const states = []
 	let lights = 1
