@@ -39,7 +39,7 @@ function Starfield(target) {
 		maxY = target.offsetHeight
 		stars = []
 
-		for (var i = 0; i < nStars; i++)
+		for (let i = 0; i < nStars; i++)
 			stars.push({
 				x: Math.random() * maxX,
 				y: Math.random() * maxY,
