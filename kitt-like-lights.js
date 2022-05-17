@@ -1,8 +1,8 @@
-// KITT-like light animation
-// Original animation: https://www.youtube.com/watch?v=oNyXYPhnUIs
+// KITT-like lights https://www.youtube.com/watch?v=oNyXYPhnUIs
 
-// Each light is represented by a bit on an integer. The algorithm shifts bits left
-// or right to produce the sequence. The `on` CSS class is what makes the light shine.
+// Each light is represented by a bit on an integer. 
+// For that, `makeKittSeq` shifts bits left or right.
+// The `on` CSS class makes a light shine.
 
 window.addEventListener('load', async function () {
 	const cKitt = 'Kitt'
