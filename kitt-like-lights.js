@@ -1,13 +1,9 @@
 // KITT-like lights https://www.youtube.com/watch?v=oNyXYPhnUIs
 
-// Each light is represented by a bit on an integer. 
-// For that, `makeKittSeq` shifts bits left or right.
-// The `on` CSS class makes a light shine.
-
 window.addEventListener('load', async function () {
 	const cKitt = 'Kitt'
 	const cLight = 'light'
-	const cOn = 'on'
+	const cOn = 'on' // This CSS class makes a light shine.
 	const N_LIGHTS = 6
 	const SPEED_MS = 166
 
@@ -29,6 +25,7 @@ window.addEventListener('load', async function () {
 })
 
 
+// Each light state is represented by a bit on an integer. 
 function makeKittSeq(nLights) {
 	const binaryMaxValue = 2 ** nLights - 1 // e.g. 6 -> 0b111111
 	const leftmostBit = 1 << (nLights - 1)  // e.g. 6 -> 0b100000
