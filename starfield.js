@@ -14,7 +14,7 @@ function Starfield(target) {
 	let raf
 	let maxX, maxY
 	const maxSize = 1.5
-	
+
 	const TAO = Math.PI * 2
 
 	const canvas = document.createElement('canvas')
@@ -55,8 +55,7 @@ function Starfield(target) {
 	function render() {
 		context.clearRect(0, 0, maxX, maxY)
 
-		for (var i = 0; i < stars.length; i++) {
-			var star = stars[i]
+		for (const star of stars) {
 			star.x += star.vx
 			star.y += star.vy
 			star.size += star.dsize
