@@ -15,14 +15,14 @@ window.addEventListener('load', function () {
 	const binaryMaxValue = 2 ** N_LIGHTS - 1 // 0b111111
 	const leftmostBit = 1 << (N_LIGHTS - 1)  // 0b100000
 
-	const Kitt = document.querySelector('.' + cKitt)
+	const Kitt = document.getElementsByClassName(cKitt)[0]
 	for (let i = 0; i < N_LIGHTS; i++) {
 		const light = document.createElement('div')
 		light.className = cLight
 		Kitt.append(light)
 	}
 
-	const Lights = Kitt.querySelectorAll('.' + cLight)
+	const Lights = Kitt.getElementsByClassName(cLight)
 
 	const seq = makeSeq();
 	(async function () {
