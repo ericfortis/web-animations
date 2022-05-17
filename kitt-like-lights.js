@@ -4,30 +4,29 @@
 // Each light is represented by a bit on an integer. The algorithm shifts bits left
 // or right to produce the sequence. The `on` CSS class is what makes the light shine.
 
-if (typeof window !== 'undefined')
-	window.addEventListener('load', async function () {
-		const cKitt = 'Kitt'
-		const cLight = 'light'
-		const cOn = 'on'
-		const N_LIGHTS = 6
-		const SPEED_MS = 166
+window.addEventListener('load', async function () {
+	const cKitt = 'Kitt'
+	const cLight = 'light'
+	const cOn = 'on'
+	const N_LIGHTS = 6
+	const SPEED_MS = 166
 
-		const Lights = []
-		for (let i = 0; i < N_LIGHTS; i++) {
-			const light = document.createElement('div')
-			light.className = cLight
-			Lights.push(light)
+	const Lights = []
+	for (let i = 0; i < N_LIGHTS; i++) {
+		const light = document.createElement('div')
+		light.className = cLight
+		Lights.push(light)
+	}
+	document.getElementsByClassName(cKitt)[0].append(...Lights)
+
+	const seq = makeKittSeq(N_LIGHTS)
+	for (; ;)
+		for (const s of seq) {
+			for (let i = 0; i < Lights.length; i++)
+				Lights[i].classList.toggle(cOn, s[i])
+			await new Promise(resolve => setTimeout(resolve, SPEED_MS)) // delay
 		}
-		document.getElementsByClassName(cKitt)[0].append(...Lights)
-
-		const seq = makeKittSeq(N_LIGHTS)
-		for (; ;)
-			for (const s of seq) {
-				for (let i = 0; i < Lights.length; i++)
-					Lights[i].classList.toggle(cOn, s[i])
-				await new Promise(resolve => setTimeout(resolve, SPEED_MS)) // delay
-			}
-	})
+})
 
 
 function makeKittSeq(nLights) {
@@ -80,4 +79,31 @@ function makeKittSeq(nLights) {
 		.padStart(nLights, '0')
 		.split('')
 		.map(Number))
+}
+
+
+/* === TEST === */
+const expected = [
+	[0, 1, 0],
+	[1, 0, 0],
+	[0, 1, 0],
+	[0, 0, 1],
+	[0, 1, 1],
+	[1, 1, 1],
+	[1, 1, 0],
+	[1, 0, 0],
+	[1, 1, 0],
+	[1, 1, 1],
+	[0, 1, 1],
+	[0, 0, 1]
+]
+
+const actual = makeKittSeq(3)
+for (let i = 0; i < expected.length; i++) {
+	if (expected[i].length !== actual[i].length)
+		throw `FAILED: The arrays at ${i} have different number of lights`
+
+	for (let j = 0; j < expected[i].length; j++)
+		if (expected[i][j] !== actual[i][j])
+			throw `FAILED: The array at ${i} has a light at index: ${j} that doesn't match`
 }
