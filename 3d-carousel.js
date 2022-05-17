@@ -17,7 +17,7 @@ const RotateDuration_ms = 740
 
 /**
  * This works by rendering a cube on top of the video during the
- * transition. i.e. it's a cube on top of a opacity=0 video for the
+ * transition. i.e. it's a cube on top of an opacity=0 video for the
  * duration of the animation. It's like this, because the vpRoot
  * container is fluid, if it was discrete it would have been much easier.
  */
