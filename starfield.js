@@ -8,17 +8,17 @@ function Starfield(target) {
 	if (!window.requestAnimationFrame)
 		return
 
-	var stars = []
-	var colors = ['#aaa', '#eee', '#fffbce']
+	let stars = []
+	const colors = ['#aaa', '#eee', '#fffbce']
 
-	var raf
-	var maxX, maxY
-	var maxSize = 1.5
+	let raf
+	let maxX, maxY
+	const maxSize = 1.5
+	
+	const TAO = Math.PI * 2
 
-	var TAO = Math.PI * 2
-
-	var canvas = document.createElement('canvas')
-	var context = canvas.getContext('2d')
+	const canvas = document.createElement('canvas')
+	const context = canvas.getContext('2d')
 
 	canvas.style.position = 'absolute'
 	canvas.style.background = getComputedStyle(target).background
@@ -32,7 +32,7 @@ function Starfield(target) {
 
 	function init() {
 		cancelAnimationFrame(raf)
-		var nStars = window.innerWidth / 5 | 0
+		const nStars = window.innerWidth / 5 | 0
 		canvas.width = target.offsetWidth
 		canvas.height = target.offsetHeight
 		maxX = target.offsetWidth
