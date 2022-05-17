@@ -83,6 +83,7 @@ function makeKittSeq(nLights) {
 
 
 /* === TEST === */
+const actual = makeKittSeq(3)
 const expected = [
 	[0, 1, 0],
 	[1, 0, 0],
@@ -98,7 +99,6 @@ const expected = [
 	[0, 0, 1]
 ]
 
-const actual = makeKittSeq(3)
 for (let i = 0; i < expected.length; i++) {
 	if (expected[i].length !== actual[i].length)
 		throw `FAILED: The arrays at ${i} have different number of lights`
