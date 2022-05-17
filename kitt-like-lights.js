@@ -8,7 +8,7 @@ window.addEventListener('load', function () {
 	const cKitt = 'Kitt'
 	const cLight = 'light'
 	const cOn = 'on'
-	
+
 	const N_LIGHTS = 6
 	const SPEED_MS = 166
 
@@ -23,60 +23,60 @@ window.addEventListener('load', function () {
 	}
 
 	const Lights = Kitt.querySelectorAll('.' + cLight)
-	function update(lightStatesArr) {
-		Lights.forEach((light, i) => {
-			light.classList.toggle(cOn, lightStatesArr[i])
-		})
-	}
 
-	async function animateCycle() {
+	const seq = makeSeq();
+	(async function () {
+		for (; ;)
+			for (const s of seq) {
+				for (let i = 0; i < Lights.length; i++)
+					Lights[i].classList.toggle(cOn, s[i])
+				await new Promise(resolve => setTimeout(resolve, SPEED_MS)) // delay
+			}
+	}())
+
+
+	function makeSeq() {
+		const states = []
 		let lights = 1
 
 		while (lights < leftmostBit) {
 			lights = lights << 1
-			await tick()
+			states.push(lights)
 		}
 
 		while (lights > 1) {
 			lights = lights >> 1
-			await tick()
+			states.push(lights)
 		}
 
 		let seq2 = 1
 		while (lights < binaryMaxValue) {
 			seq2 = seq2 << 1
 			lights += seq2
-			await tick()
+			states.push(lights)
 		}
 
 		seq2 = 1
 		while (lights > leftmostBit) {
 			lights -= seq2
 			seq2 = seq2 << 1
-			await tick()
+			states.push(lights)
 		}
 
 		seq2 = leftmostBit
 		while (lights < binaryMaxValue) {
 			seq2 = seq2 >> 1
 			lights += seq2
-			await tick()
+			states.push(lights)
 		}
 
 		seq2 = leftmostBit
 		while (lights > 1) {
 			lights -= seq2
 			seq2 = seq2 >> 1
-			await tick()
+			states.push(lights)
 		}
 
-		async function tick() {
-			update(lights.toString(2).padStart(N_LIGHTS, '0').split('').map(Number))
-			await new Promise(resolve => setTimeout(resolve, SPEED_MS))
-		}
-
-		animateCycle()
+		return states.map(lights => lights.toString(2).padStart(N_LIGHTS, '0').split('').map(Number))
 	}
-	
-	animateCycle()
 })
