@@ -33,10 +33,10 @@ function Starfield(target) {
 	function init() {
 		cancelAnimationFrame(raf)
 		const nStars = window.innerWidth / 5 | 0
-		canvas.width = target.offsetWidth
-		canvas.height = target.offsetHeight
 		maxX = target.offsetWidth
 		maxY = target.offsetHeight
+		canvas.width = maxX
+		canvas.height = maxY
 		stars = []
 
 		for (let i = 0; i < nStars; i++)
