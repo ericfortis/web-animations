@@ -28,6 +28,7 @@ window.addEventListener('load', async function () {
 (function test() {
 	const actual = makeKittSeq(3)
 	const expected = [
+		[0, 0, 1],
 		[0, 1, 0],
 		[1, 0, 0],
 		[0, 1, 0],
@@ -38,8 +39,7 @@ window.addEventListener('load', async function () {
 		[1, 0, 0],
 		[1, 1, 0],
 		[1, 1, 1],
-		[0, 1, 1],
-		[0, 0, 1]
+		[0, 1, 1]
 	]
 
 	for (let i = 0; i < expected.length; i++) {
@@ -50,7 +50,7 @@ window.addEventListener('load', async function () {
 			if (expected[i][j] !== actual[i][j])
 				throw `FAILED: The array at ${i} has a light at index: ${j} that doesn't match`
 	}
-}());
+}())
 
 
 // Each light state is represented by a bit on an integer. 
@@ -58,45 +58,45 @@ function makeKittSeq(nLights) {
 	const binaryMaxValue = 2 ** nLights - 1 // e.g. 6 -> 0b111111
 	const leftmostBit = 1 << (nLights - 1)  // e.g. 6 -> 0b100000
 
-	const states = []
-	let lights = 1
+	let bitmap = 1
+	const states = [bitmap]
 
-	while (lights < leftmostBit) {
-		lights = lights << 1
-		states.push(lights)
+	while (bitmap < leftmostBit) {
+		bitmap = bitmap << 1
+		states.push(bitmap)
 	}
 
-	while (lights > 1) {
-		lights = lights >> 1
-		states.push(lights)
+	while (bitmap > 1) {
+		bitmap = bitmap >> 1
+		states.push(bitmap)
 	}
 
 	let rev = 1
-	while (lights < binaryMaxValue) {
+	while (bitmap < binaryMaxValue) {
 		rev = rev << 1
-		lights += rev
-		states.push(lights)
+		bitmap += rev
+		states.push(bitmap)
 	}
 
 	rev = 1
-	while (lights > leftmostBit) {
-		lights -= rev
+	while (bitmap > leftmostBit) {
+		bitmap -= rev
 		rev = rev << 1
-		states.push(lights)
+		states.push(bitmap)
 	}
 
 	rev = leftmostBit
-	while (lights < binaryMaxValue) {
+	while (bitmap < binaryMaxValue) {
 		rev = rev >> 1
-		lights += rev
-		states.push(lights)
+		bitmap += rev
+		states.push(bitmap)
 	}
 
 	rev = leftmostBit
-	while (lights > 1) {
-		lights -= rev
+	while (bitmap > 2) {
+		bitmap -= rev
 		rev = rev >> 1
-		states.push(lights)
+		states.push(bitmap)
 	}
 
 	return states.map(lights => lights // Numbers to BitArrays
