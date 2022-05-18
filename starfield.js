@@ -8,18 +8,18 @@ function Starfield(target) {
 	if (!window.requestAnimationFrame)
 		return
 
-	let stars = []
 	const colors = ['#aaa', '#eee', '#fffbce']
-
-	let raf, maxX, maxY
 	const maxSize = 1.5
-
+	
 	const canvas = document.createElement('canvas')
 	const context = canvas.getContext('2d')
 	canvas.style.position = 'absolute'
 	canvas.style.background = getComputedStyle(target).background
 	target.insertAdjacentElement('beforebegin', canvas)
 	target.style.background = 'none'
+	
+	let stars = []
+	let raf, maxX, maxY
 
 	init()
 	window.addEventListener('resize', init)
