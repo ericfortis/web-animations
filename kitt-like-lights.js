@@ -4,23 +4,23 @@ window.addEventListener('load', async function () {
 	const cKitt = 'Kitt'
 	const cLight = 'light'
 	const cOn = 'on' // This CSS class makes a light shine.
-	const N_LIGHTS = 6
-	const SPEED_MS = 166
+	const nLights = 6
+	const msSpeed = 166
 
 	const Lights = []
-	for (let i = 0; i < N_LIGHTS; i++) {
+	for (let i = 0; i < nLights; i++) {
 		const light = document.createElement('div')
 		light.className = cLight
 		Lights.push(light)
 	}
 	document.getElementsByClassName(cKitt)[0].append(...Lights)
 
-	const seq = makeKittSeq(N_LIGHTS)
+	const seq = makeKittSeq(nLights)
 	for (; ;)
 		for (const seqLine of seq) {
 			for (let i = 0; i < Lights.length; i++)
 				Lights[i].classList.toggle(cOn, seqLine[i])
-			await new Promise(resolve => setTimeout(resolve, SPEED_MS)) // delay
+			await new Promise(resolve => setTimeout(resolve, msSpeed)) // sleep
 		}
 });
 
