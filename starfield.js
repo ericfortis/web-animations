@@ -11,21 +11,15 @@ function Starfield(target) {
 	let stars = []
 	const colors = ['#aaa', '#eee', '#fffbce']
 
-	let raf
-	let maxX, maxY
+	let raf, maxX, maxY
 	const maxSize = 1.5
-
-	const TAO = Math.PI * 2
 
 	const canvas = document.createElement('canvas')
 	const context = canvas.getContext('2d')
-
 	canvas.style.position = 'absolute'
 	canvas.style.background = getComputedStyle(target).background
-
 	target.insertAdjacentElement('beforebegin', canvas)
 	target.style.background = 'none'
-
 
 	init()
 	window.addEventListener('resize', init)
@@ -76,7 +70,7 @@ function Starfield(target) {
 			}
 
 			context.beginPath()
-			context.arc(star.x, star.y, star.size, 0, TAO)
+			context.arc(star.x, star.y, star.size, 0, Math.PI * 2)
 			context.fillStyle = star.color
 			context.fill()
 		}
