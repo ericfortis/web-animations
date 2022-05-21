@@ -57,7 +57,7 @@
 		parent.addEventListener('click', function () {
 			for (const anim of animationEnded ? startAnimations : endAnimations)
 				anim.beginElement()
-			animationEnded ^= true
+			animationEnded = !animationEnded
 		})
 	}
 
