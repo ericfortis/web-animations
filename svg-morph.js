@@ -1,9 +1,9 @@
 // Based on:
 // https://css-tricks.com/svg-shape-morphing-works/
-// There's no need to have the same number of points
 
-// For converting paths to polygons
+// For converting paths to polygons use:
 // https://betravis.github.io/shape-tools/path-to-polygon/
+
 (function () {
 	svgMorph({
 		parent: document.getElementById('PlayPauseButton'),
