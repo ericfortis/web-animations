@@ -31,20 +31,27 @@
 			max-width: 440px;
 			color: #aaa;
 		}
+		
+		.normalWeight {
+			font-weight: normal;
+		}
 
 		.UIDrafterLogoSpin,
 		.DebogContainer {
 			width: 380px;
 			max-width: 95%;
 		}
-		
+
 		.SvgMorph {
 			width: 50px;
 			height: 50px;
-			border-radius: 7px;
-			border: 3px solid #ff4000;
+			border: 0;
+			border-radius: 4px;
 			background: none;
 			cursor: pointer;
+		}
+		.SvgMorph:hover {
+			background: rgba(0, 0, 0, 0.3);
 		}
 		.SvgMorph:active {
 			cursor: grabbing;
@@ -52,12 +59,12 @@
 		.SvgMorph:not(:last-of-type) {
 			margin-right: 12px;
 		}
-		
+
 		#CalendarWrap {
 			width: calc(140px + 7px * 2);
 			cursor: pointer;
 		}
-		
+
 		#Starfield {
 			width: 90%;
 			height: 240px;
@@ -90,11 +97,10 @@
 <body>
 <h1>Web Animations</h1>
 <p>
-	Pure JS, CSS, HTML, SVG animation examples.
+	Pure JS, CSS, HTML, SVG animations.
 </p>
 <p>
-	Source code at
-	<b><a href="https://github.com/ericfortis/web-animations">Github</a></b>
+	Source code: <b><a href="https://github.com/ericfortis/web-animations">Github</a></b>
 </p>
 <p>Click the animations to replay them.</p>
 
@@ -115,7 +121,7 @@
 
 <h2>SVG Morph</h2>
 <p>
-	Play to Pause (polygon), and Car to Bus (path)
+	Play to Pause (polygon) and Car to Bus (path)
 </p>
 <button type="button" id="SvgMorphPlayToPause" class="SvgMorph"></button>
 <button type="button" id="SvgMorphCarToBus" class="SvgMorph"></button>
@@ -133,29 +139,25 @@
 </svg>
 
 
-<h2>Calendar</h2>
-<p>Animation for weeks faster.</p>
+<h2>Calendar <span class="normalWeight">(weeks faster)</span></h2>
 <div id="CalendarWrap"></div>
 
 
 <h2>Fortress</h2>
-<p>Animation for robust.</p>
 <object data="fortress.svg" type="image/svg+xml">
-	<img alt="Fortress animation" src="fortress.svg" />
+	<img alt="Fortress, Robust animation" src="fortress.svg" />
 </object>
 
 
 <h2>Searching</h2>
-<p>Animation for searching.</p>
 <object data="search.svg" type="image/svg+xml">
 	<img alt="Searching animation" src="search.svg" />
 </object>
 
 
-<h2>Lock</h2>
-<p>Padlock animation.</p>
-<object data="lock.svg" type="image/svg+xml">
-	<img alt="Padlock animation" src="lock.svg" />
+<h2>Padlock</h2>
+<object data="padlock.svg" type="image/svg+xml">
+	<img alt="Padlock, Secure animation" src="padlock.svg" />
 </object>
 
 
@@ -165,7 +167,7 @@
 
 <h2>Draw Interactive Connection</h2>
 <p>
-	This is SVG, but you can use the <code>describeCurve</code> function for a canvas too.
+	Although this is SVG, you can use the <code>describeCurve</code> function for a canvas too.
 </p>
 <svg id="InteractiveConnectionTarget">
 	<path d="" id="InteractiveConnection" />
@@ -212,12 +214,10 @@
 </div>
 
 
-
 <h2>More…</h2>
 <p>
 	<a href="https://ericfortis.github.io/web-tricks/" target="_blank">Web Tricks</a>
 </p>
-
 
 
 <footer>
