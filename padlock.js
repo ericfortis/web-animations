@@ -2,10 +2,10 @@ window.addEventListener('load', function () {
 
 	AnimateLock()
 	function AnimateLock() {
-		const Lock = document.getElementById('Lock')
+		const Lock = document.getElementById('Padlock')
 		Lock.removeEventListener('click', AnimateLock)
 
-		const LockShape = Lock.getElementById('LockShape')
+		const LockShape = Lock.getElementById('PadlockShape')
 
 		let delay = 0
 		let lastRotation = 0
