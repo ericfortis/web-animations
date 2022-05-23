@@ -1,49 +1,52 @@
 // Based on:
 // https://css-tricks.com/svg-shape-morphing-works/
 
-// For converting paths to polygons use:
+// For converting paths to polygons:
 // https://betravis.github.io/shape-tools/path-to-polygon/
 
 (function () {
 	svgMorph({
 		parent: document.getElementById('PlayPauseButton'),
 		viewBox: '0 0 24 24',
-		startPolygons: ['6.5 19, 17.5 12, 17.5 12, 6.5 5'], // Play icon
-		endPolygons: ['6 19, 10 19, 10 5, 6 5', '14 5, 14 19, 18 19, 18 5'], // Pause icon
+		shapeTagName: 'polygon',
+		startShapes: ['6.5 19, 17.5 12, 17.5 12, 6.5 5'], // Play icon
+		endShapes: ['6 19, 10 19, 10 5, 6 5', '14 5, 14 19, 18 19, 18 5'], // Pause icon
 		fill: '#ff4000',
 		dur: '240ms'
 	})
 
-	function svgMorph({ parent, viewBox, startPolygons, endPolygons, fill, dur }) {
-		// Ensure both states have the same number of polygons by appending the last one
-		while (endPolygons.length > startPolygons.length) startPolygons.push(startPolygons.at(-1))
-		while (endPolygons.length < startPolygons.length) endPolygons.push(endPolygons.at(-1))
+	function svgMorph({ parent, viewBox, shapeTagName = 'path', startShapes, endShapes, fill, dur }) {
+		// Ensure both states have the same number of shapes by appending the last one
+		while (endShapes.length > startShapes.length) startShapes.push(startShapes.at(-1))
+		while (endShapes.length < startShapes.length) endShapes.push(endShapes.at(-1))
+
+		const attributeName = shapeTagName === 'path' ? 'd' : 'points'
 
 		const startAnimations = []
 		const endAnimations = []
 		const SVG = createSvgElement('svg', { viewBox })
 
-		for (let i = 0; i < startPolygons.length; i++) {
-			const startPoints = startPolygons[i]
-			const endPoints = endPolygons[i]
+		for (let i = 0; i < startShapes.length; i++) {
+			const startPoints = startShapes[i]
+			const endPoints = endShapes[i]
 
-			const poly = createSvgElement('polygon', {
+			const poly = createSvgElement(shapeTagName, {
 				fill,
-				points: startPoints
+				[attributeName]: startPoints
 			})
 			const toEnd = createSvgElement('animate', {
 				to: endPoints,
 				dur,
 				fill: 'freeze',
 				begin: 'indefinite',
-				attributeName: 'points'
+				attributeName
 			})
 			const toStart = createSvgElement('animate', {
 				to: startPoints,
 				dur,
 				fill: 'freeze',
 				begin: 'indefinite',
-				attributeName: 'points'
+				attributeName
 			})
 
 			endAnimations.push(toEnd)
