@@ -37,7 +37,7 @@
 
 		const startAnimations = []
 		const endAnimations = []
-		const SVG = createSvgElement('svg', { viewBox })
+		const svg = createSvgElement('svg', { viewBox })
 
 		for (let i = 0; i < startShapes.length; i++) {
 			const startPoints = startShapes[i]
@@ -65,11 +65,11 @@
 			endAnimations.push(toEnd)
 			startAnimations.push(toStart)
 			poly.append(toEnd, toStart)
-			SVG.append(poly)
+			svg.append(poly)
 		}
 
 		let animationEnded = false
-		parent.append(SVG)
+		parent.append(svg)
 		parent.addEventListener('click', function () {
 			for (const anim of animationEnded ? startAnimations : endAnimations)
 				anim.beginElement()
