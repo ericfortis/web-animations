@@ -48,6 +48,7 @@ function Starfield(target) {
 
 	function render() {
 		context.clearRect(0, 0, maxX, maxY)
+		context.globalAlpha = 0.8
 
 		for (const star of stars) {
 			star.x += star.vx
