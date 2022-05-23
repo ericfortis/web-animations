@@ -38,7 +38,7 @@
 			max-width: 95%;
 		}
 		
-		#PlayPauseButton {
+		.SvgMorph {
 			width: 50px;
 			height: 50px;
 			border-radius: 7px;
@@ -46,8 +46,11 @@
 			background: none;
 			cursor: pointer;
 		}
-		#PlayPauseButton:active {
+		.SvgMorph:active {
 			cursor: grabbing;
+		}
+		.SvgMorph:not(:last-of-type) {
+			margin-right: 12px;
 		}
 		
 		#CalendarWrap {
@@ -110,8 +113,12 @@
 </object>
 
 
-<h2>SVG Morph Play/Pause</h2>
-<button type="button" id="PlayPauseButton"></button>
+<h2>SVG Morph</h2>
+<p>
+	Play to Pause (polygon), and Car to Bus (path)
+</p>
+<button type="button" id="SvgMorphPlayToPause" class="SvgMorph"></button>
+<button type="button" id="SvgMorphCarToBus" class="SvgMorph"></button>
 
 
 <h2>KITT-like lights</h2>
