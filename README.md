@@ -1,6 +1,8 @@
-# Web Animations
+# Learning Web Animations
 
-A collection of pure CSS, JS, HTML, SVG animations.
+Animation projects for learning Web Frontend programming.
+
+These projects are coded in vanilla JavaScript, CSS, HTML, and SVG.
 
 ### https://ericfortis.github.io/web-animations/
 
