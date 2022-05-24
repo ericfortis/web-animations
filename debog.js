@@ -17,8 +17,8 @@ function AnimateDebog() {
 
 	animateRotation(WingL, -360, 360 * 4, 2000)
 	animateRotation(WingR, 0, 360 * 6, 2200)
-	animateStroke(Mouth, 2300)
-	animateStroke(Nose, 2300)
+	animateStrokePainting(Mouth, 2300)
+	animateStrokePainting(Nose, 2300)
 
 	setTimeout(function () {
 		animatePositionY(Legs, -50, 0, 180)
@@ -34,19 +34,19 @@ function AnimateDebog() {
 		Debog.addEventListener('click', AnimateDebog)
 	}, 2200)
 
-	function animateRotation(elem, minAngle, maxAngle, duration) {
+	function animateRotation(elem, startAngle, endAngle, duration) {
 		const start = Date.now()
 		elem.style.opacity = 1
 		requestAnimationFrame(function anim() {
 			const normTime = (Date.now() - start) / duration
-			const angle = easeOutQuad(normTime) * (maxAngle - minAngle) + minAngle
+			const angle = easeOutQuad(normTime) * (endAngle - startAngle) + startAngle
 			elem.style.transform = `rotate(${angle}deg)`
 			if (normTime < 1)
 				requestAnimationFrame(anim)
 		})
 	}
 
-	function animateStroke(elem, duration) {
+	function animateStrokePainting(elem, duration) {
 		const length = elem.getTotalLength()
 		const start = Date.now()
 		elem.style.opacity = 1
@@ -60,12 +60,12 @@ function AnimateDebog() {
 		})
 	}
 
-	function animatePositionY(elem, minY, maxY, duration) {
+	function animatePositionY(elem, startY, endY, duration) {
 		const start = Date.now()
 		requestAnimationFrame(function anim() {
 			const normTime = (Date.now() - start) / duration
 			elem.style.opacity = normTime
-			const y = easeOutQuad(normTime) * (maxY - minY) + minY
+			const y = easeOutQuad(normTime) * (endY - startY) + startY
 			elem.style.transform = `translate(0, ${y}px)`
 			if (normTime < 1)
 				requestAnimationFrame(anim)
