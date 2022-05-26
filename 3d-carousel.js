@@ -24,7 +24,7 @@ const RotateDuration_ms = 740
 InitVideoGroups(document.body)
 function InitVideoGroups(Section) {
 	for (const button of Section.getElementsByClassName(cRadioBtn))
-		button.addEventListener('click', function () { // hitting space when focus also fires a "click"
+		button.addEventListener('change', function () {
 			if (this.className.indexOf(cSelected) === -1) { // isNotSelected
 				const oldBtn = Section.getElementsByClassName(cSelected)[0]
 				const oldFace = document.getElementById(oldBtn.getAttribute(FaceIdAttr)).querySelector(FaceElement)
@@ -71,20 +71,18 @@ function RotateCube(Section, faceWidth, fromFace, toFace) {
 	timer0 = setTimeout(function () {
 		cube.style.transition = CUBE_T
 		cube.style.transform = cubeRotations(toFace)
-		focusOnVisibleFace()
+		allowFocusOnVisibleVideoFace()
 	}, 100) // I don't know why this has to be longer than one raf
 
 
-	function focusOnVisibleFace() { // only for videos
+	function allowFocusOnVisibleVideoFace() { // only for videos
 		const faces = Section.getElementsByTagName('video')
 		for (const face of faces)
 			face.nextElementSibling.setAttribute('tabindex', '-1')
 
 		const currVideoPlayButton = Section.querySelector('.' + toFace + ' video + button')
-		if (currVideoPlayButton) {
+		if (currVideoPlayButton) 
 			currVideoPlayButton.setAttribute('tabindex', '0')
-			currVideoPlayButton.focus()
-		}
 	}
 
 	function cubeRotations(face) {

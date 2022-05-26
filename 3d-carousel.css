@@ -28,6 +28,7 @@ img {
 	text-align: center;
 }
 .cubeRadioButton {
+	display: inline-block;
 	position: relative;
 	padding: 20px 6px 8px;
 	background: none;
@@ -36,6 +37,11 @@ img {
 	font-size: 15px;
 	cursor: pointer;
 	transition-property: box-shadow;
+}
+.cubeRadioButton input {
+	width: 0;
+	height: 0;
+	position: absolute;
 }
 .cubeRadioButton:not(.cubeSelected):hover {
 	background: var(--accentHover);
@@ -69,7 +75,7 @@ img {
 .cubeRadioButton.cubeSelected .icon {
 	background: var(--accent);
 }
-.cubeRadioButton:focus:not(:active) .icon {
+.cubeRadioButton input:focus + .icon {
 	animation: _pulseScale 500ms infinite alternate-reverse ease-in-out;
 }
 @keyframes _pulseScale {
