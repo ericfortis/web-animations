@@ -12,11 +12,11 @@ function AnimateCalendar() {
 
 	let nOff = 0
 	const msSpeed = 30
-	const nDays = 7 * 7
+	const nDays = (7 * 7 - 3)
 	const frag = document.createDocumentFragment()
 	for (let i = 0; i < nDays; i++) {
 		const day = document.createElement('div')
-		if (i < 4 || i > 23 + (7 * 3))
+		if (i < 4)
 			day.className = 'Day Spacer'
 		else if (i < 25) {
 			day.className = 'Day Off'
