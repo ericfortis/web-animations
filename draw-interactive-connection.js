@@ -1,5 +1,6 @@
 /**
  * A Bezier curve between two Points for drawing smooth connections.
+ * Although we use for SVG, it works for canvas too.
  * Path "M:p1 C:p1Anchor p2Anchor p2"
  */
 function describeCurve(x1, y1, x2, y2) {
