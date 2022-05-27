@@ -11,24 +11,23 @@ function AnimateCalendar() {
 	Calendar.innerHTML = ''
 
 	let nOff = 0
-	const SPEED = 30
+	const msSpeed = 30
+	const nDays = 7 * 7
 	const frag = document.createDocumentFragment()
-	for (let i = 0; i < (7 * 7); i++) {
+	for (let i = 0; i < nDays; i++) {
 		const day = document.createElement('div')
 		if (i < 4 || i > 23 + (7 * 3))
 			day.className = 'Day Spacer'
 		else if (i < 25) {
 			day.className = 'Day Off'
-			day.style.animationDelay = nOff++ * SPEED + 'ms'
+			day.style.animationDelay = nOff++ * msSpeed + 'ms'
 		}
-		else
+		else {
 			day.className = 'Day On'
+			day.style.animationDelay = (nDays - i) * msSpeed + 'ms'
+		}
 		frag.appendChild(day)
 	}
 
 	Calendar.appendChild(frag)
-	
-	Array.from(document.querySelectorAll('.Day.On')).reverse().forEach((day, i) => {
-		day.style.animationDelay = i * SPEED + 'ms'
-	})
 }
