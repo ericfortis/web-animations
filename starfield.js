@@ -26,7 +26,7 @@ function Starfield(target) {
 
 	function init() {
 		cancelAnimationFrame(raf)
-		const nStars = window.innerWidth / 5 | 0
+		const nStars = window.innerWidth * 0.2 | 0
 		maxX = target.offsetWidth
 		maxY = target.offsetHeight
 		canvas.width = maxX
@@ -37,7 +37,7 @@ function Starfield(target) {
 			stars.push({
 				x: Math.random() * maxX,
 				y: Math.random() * maxY,
-				vx: Math.random() / 2, // velocity
+				vx: Math.random() * 0.2, // velocity
 				vy: Math.random() * -0.2,
 				size: Math.random() * maxSize,
 				dsize: Math.random() * 0.03, // delta size
