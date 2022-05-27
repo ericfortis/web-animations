@@ -10,13 +10,17 @@ function AnimateCalendar() {
 
 	Calendar.innerHTML = ''
 
+	let nOff = 0
+	const SPEED = 30
 	const frag = document.createDocumentFragment()
 	for (let i = 0; i < (7 * 7); i++) {
 		const day = document.createElement('div')
 		if (i < 4 || i > 23 + (7 * 3))
 			day.className = 'Day Spacer'
-		else if (i < 25)
+		else if (i < 25) {
 			day.className = 'Day Off'
+			day.style.animationDelay = nOff++ * SPEED + 'ms'
+		}
 		else
 			day.className = 'Day On'
 		frag.appendChild(day)
@@ -24,10 +28,7 @@ function AnimateCalendar() {
 
 	Calendar.appendChild(frag)
 	
-	document.querySelectorAll('.Day.Off').forEach((day, i) => {
-		day.style.animationDelay = i * 30 + 'ms'
-	})
 	Array.from(document.querySelectorAll('.Day.On')).reverse().forEach((day, i) => {
-		day.style.animationDelay = i * 30 + 'ms'
+		day.style.animationDelay = i * SPEED + 'ms'
 	})
 }
