@@ -1,10 +1,8 @@
-# Learning Web Animations
+# Web Animation Examples for Learning Web Frontend
 
-Animation projects for learning Web Frontend programming.
+The examples are in plain JavaScript, CSS, HTML, and SVG.
 
-Plain JavaScript, CSS, HTML, and SVG.
-
-### https://ericfortis.github.io/web-animations/
+### [Live Demo](https://ericfortis.github.io/web-animations/)
 
 ## License
 These programs are [ISC licensed](./LICENSE).
