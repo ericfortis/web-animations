@@ -4,5 +4,4 @@ The examples are in plain JavaScript, CSS, HTML, and SVG.
 
 ### [Live Demo](https://ericfortis.github.io/web-animations/)
 
-## License
-These programs are [ISC licensed](./LICENSE).
+These programs are [ISC licensed](./LICENSE)
