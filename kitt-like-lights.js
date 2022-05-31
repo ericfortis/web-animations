@@ -62,18 +62,18 @@ function makeKittSeq(nLights) {
 	const states = [bitmap]
 
 	while (bitmap < leftmostBit) {
-		bitmap = bitmap << 1
+		bitmap <<= 1
 		states.push(bitmap)
 	}
 
 	while (bitmap > 1) {
-		bitmap = bitmap >> 1
+		bitmap >>= 1
 		states.push(bitmap)
 	}
 
 	let rev = 1
 	while (bitmap < binaryMaxValue) {
-		rev = rev << 1
+		rev <<= 1
 		bitmap += rev
 		states.push(bitmap)
 	}
@@ -81,13 +81,13 @@ function makeKittSeq(nLights) {
 	rev = 1
 	while (bitmap > leftmostBit) {
 		bitmap -= rev
-		rev = rev << 1
+		rev <<= 1
 		states.push(bitmap)
 	}
 
 	rev = leftmostBit
 	while (bitmap < binaryMaxValue) {
-		rev = rev >> 1
+		rev >>= 1
 		bitmap += rev
 		states.push(bitmap)
 	}
@@ -95,7 +95,7 @@ function makeKittSeq(nLights) {
 	rev = leftmostBit
 	while (bitmap > 2) {
 		bitmap -= rev
-		rev = rev >> 1
+		rev >>= 1
 		states.push(bitmap)
 	}
 
