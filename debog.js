@@ -24,9 +24,9 @@ function AnimateDebog() {
 		animatePositionY(Legs, -50, 0, 180)
 	}, 1900)
 
-	document.querySelectorAll('.Letters path').forEach(function (elem, i) {
-		setTimeout(function () {
-			animatePositionY(elem, -80, 0, 120)
+	Letters.forEach((letter, i) => {
+		setTimeout(() => {
+			animatePositionY(letter, -80, 0, 120)
 		}, 100 * i + 1600)
 	})
 
