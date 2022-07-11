@@ -53,7 +53,7 @@ window.addEventListener('load', async function () {
 }())
 
 
-// Each light state is represented by a bit on an integer. 
+// Each light state is represented by a bit of an integer. 
 function makeKittSeq(nLights) {
 	const binaryMaxValue = 2 ** nLights - 1 // e.g. 6 -> 0b111111
 	const leftmostBit = 1 << (nLights - 1)  // e.g. 6 -> 0b100000
