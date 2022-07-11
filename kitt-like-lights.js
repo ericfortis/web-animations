@@ -13,7 +13,7 @@ window.addEventListener('load', async function () {
 		light.className = cLight
 		Lights.push(light)
 	}
-	document.getElementsByClassName(cKitt)[0].append(...Lights)
+	document.querySelector('.' + cKitt).append(...Lights)
 
 	const seq = makeKittSeq(nLights)
 	for (; ;)
