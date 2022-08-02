@@ -18,18 +18,11 @@ window.addEventListener('load', async function () {
 
 	const seq = makeKittSeq(nLights)
 	let nSeq = 0
-	let then = Date.now() - msSpeed
-
-	;(function render() {
-		requestAnimationFrame(render)
-		const now = Date.now()
-		if (now - then > msSpeed) {
-			then = now
-			for (let i = 0; i < Lights.length; i++)
-				Lights[i].classList.toggle(cOn, seq[nSeq][i])
-			nSeq = (nSeq + 1) % seq.length
-		}
-	}())
+	setInterval(function () {
+		for (let i = 0; i < Lights.length; i++)
+			Lights[i].classList.toggle(cOn, seq[nSeq][i])
+		nSeq = (nSeq + 1) % seq.length
+	}, msSpeed)
 })
 
 
