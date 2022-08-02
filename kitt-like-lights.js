@@ -19,8 +19,8 @@ window.addEventListener('load', function () {
 	const states = makeKittStates(nLights)
 	let nState = 0
 	setInterval(() => {
-		for (let iLight = 0; iLight < Lights.length; iLight++)
-			Lights[iLight].classList.toggle(cOn, states[nState][iLight])
+		for (let i = 0; i < Lights.length; i++)
+			Lights[i].classList.toggle(cOn, states[nState][i])
 		nState = (nState + 1) % states.length
 	}, msSpeed)
 })
