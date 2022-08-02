@@ -14,19 +14,26 @@ window.addEventListener('load', async function () {
 		light.className = cLight
 		Lights.push(light)
 	}
-	document.querySelector('.' + cKitt).append(...Lights)
+	document.getElementsByClassName(cKitt)[0].append(...Lights)
 
 	const seq = makeKittSeq(nLights)
-	for (; ;)
-		for (const seqLine of seq) {
+	let nSeq = 0
+	let then = Date.now() - msSpeed
+
+	;(function render() {
+		requestAnimationFrame(render)
+		const now = Date.now()
+		if (now - then > msSpeed) {
+			then = now
 			for (let i = 0; i < Lights.length; i++)
-				Lights[i].classList.toggle(cOn, seqLine[i])
-			await new Promise(resolve => setTimeout(resolve, msSpeed)) // sleep
+				Lights[i].classList.toggle(cOn, seq[nSeq][i])
+			nSeq = (nSeq + 1) % seq.length
 		}
-});
+	}())
+})
 
 
-(function test() {
+;(function test() {
 	const actual = makeKittSeq(3)
 	const expected = [
 		[0, 0, 1],

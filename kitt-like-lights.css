@@ -5,11 +5,11 @@
 	height: 10px;
 	border: 1px solid #333;
 	margin: 0 1px;
-	transition: all 170ms ease-in-out;
+	transition: all 150ms ease-in-out;
 }
 
 .Kitt .light.on {
 	border-color: #ff4000;
 	background: #ff4000;
-	box-shadow: 0 0 24px #ff4000;
+	box-shadow: 0 0 30px #ff4000;
 }
