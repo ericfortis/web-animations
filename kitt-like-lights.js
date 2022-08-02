@@ -18,7 +18,7 @@ window.addEventListener('load', async function () {
 
 	const seq = makeKittSeq(nLights)
 	let nSeq = 0
-	setInterval(function () {
+	setInterval(() => {
 		for (let i = 0; i < Lights.length; i++)
 			Lights[i].classList.toggle(cOn, seq[nSeq][i])
 		nSeq = (nSeq + 1) % seq.length
