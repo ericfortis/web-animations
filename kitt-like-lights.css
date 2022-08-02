@@ -11,27 +11,5 @@
 .Kitt .light.on {
 	border-color: #ff4000;
 	background: #ff4000;
-	box-shadow: 0 0 11px #ff4000;
-}
-
-.Kitt .light.on::before,
-.Kitt .light.on::after {
-	position: absolute;
-	content: '';
-	box-shadow: 0 0 16px rgba(255, 30, 30, 0.4);
-	background: rgba(255, 40, 40, .03);
-}
-
-.Kitt .light.on::before { /* horizontal flare */
-	top: calc(50% - (2px / 2));
-	left: -50%;
-	width: 200%;
-	height: 2px;
-}
-
-.Kitt .light.on::after { /* vertical flare */
-	top: -150%;
-	left: calc(50% - (2px / 2));
-	width: 2px;
-	height: 400%;
+	box-shadow: 0 0 24px #ff4000;
 }

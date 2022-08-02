@@ -1,4 +1,5 @@
-// KITT-like lights https://www.youtube.com/watch?v=oNyXYPhnUIs
+// Knight Rider's KITT-like lights 
+// https://www.youtube.com/watch?v=oNyXYPhnUIs
 
 window.addEventListener('load', async function () {
 	const cKitt = 'Kitt'
