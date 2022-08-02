@@ -13,6 +13,6 @@
 
 .Kitt .light.on {
 	border-color: #ff4000;
-	background: #ff4000;
-	box-shadow: 0 0 30px #ff4000;
+	background: #ffa080;
+	box-shadow: 0 0 32px #ff4000, 0 0 10px #ff4000, 0 0 24px #ff4000 inset;
 }
