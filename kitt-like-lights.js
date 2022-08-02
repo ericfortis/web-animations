@@ -101,7 +101,7 @@ function makeKittStates(nLights) {
 	}
 
 	return states.map(lights => lights // Numbers to BitArrays
-		.toString(2)
+		.toString(2) // to binary string
 		.padStart(nLights, '0')
 		.split('')
 		.map(Number))
