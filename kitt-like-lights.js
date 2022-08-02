@@ -16,18 +16,18 @@ window.addEventListener('load', async function () {
 	}
 	document.querySelector('.' + cKitt).append(...Lights)
 
-	const seq = makeKittSeq(nLights)
-	let nSeq = 0
+	const states = makeKittStates(nLights)
+	let nState = 0
 	setInterval(() => {
-		for (let i = 0; i < Lights.length; i++)
-			Lights[i].classList.toggle(cOn, seq[nSeq][i])
-		nSeq = (nSeq + 1) % seq.length
+		for (let nLight = 0; nLight < Lights.length; nLight++)
+			Lights[nLight].classList.toggle(cOn, states[nState][nLight])
+		nState = (nState + 1) % states.length
 	}, msSpeed)
 })
 
 
 ;(function test() {
-	const actual = makeKittSeq(3)
+	const actual = makeKittStates(3)
 	const expected = [
 		[0, 0, 1],
 		[0, 1, 0],
@@ -55,7 +55,7 @@ window.addEventListener('load', async function () {
 
 
 // Each light state is represented by a bit of an integer. 
-function makeKittSeq(nLights) {
+function makeKittStates(nLights) {
 	const binaryMaxValue = 2 ** nLights - 1 // e.g. 6 -> 0b111111
 	const leftmostBit = 1 << (nLights - 1)  // e.g. 6 -> 0b100000
 
