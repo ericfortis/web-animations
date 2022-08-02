@@ -1,7 +1,7 @@
 // Knight Rider's KITT-like lights 
 // https://www.youtube.com/watch?v=oNyXYPhnUIs
 
-window.addEventListener('load', async function () {
+window.addEventListener('load', function () {
 	const cKitt = 'Kitt'
 	const cLight = 'light'
 	const cOn = 'on' // This CSS class makes a light shine.
