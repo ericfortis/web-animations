@@ -1,11 +1,14 @@
 .Kitt .light {
-	position: relative;
 	display: inline-block;
 	width: 32px;
 	height: 10px;
 	border: 1px solid #333;
-	margin: 0 1px;
-	transition: all 150ms ease-in-out;
+	margin-right: 2px;
+	transition: all 120ms ease-in-out;
+}
+
+.Kitt .light:last-of-type {
+	margin-right: 0;
 }
 
 .Kitt .light.on {
