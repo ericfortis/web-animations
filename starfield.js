@@ -13,7 +13,6 @@ function Starfield(target) {
 	
 	const canvas = document.createElement('canvas')
 	const context = canvas.getContext('2d')
-	canvas.style.position = 'absolute'
 	canvas.style.background = getComputedStyle(target).background
 	target.insertAdjacentElement('beforebegin', canvas)
 	target.style.background = 'none'
