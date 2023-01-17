@@ -50,7 +50,7 @@ function AnimateDebog() {
 		const length = elem.getTotalLength()
 		const start = Date.now()
 		elem.style.opacity = 1
-		elem.style.strokeDasharray = length + ' ' + length
+		elem.style.strokeDasharray = length
 		elem.style.strokeDashoffset = length
 		requestAnimationFrame(function anim() {
 			const normTime = (Date.now() - start) / duration
