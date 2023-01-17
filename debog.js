@@ -54,7 +54,7 @@ function AnimateDebog() {
 		elem.style.strokeDashoffset = length
 		requestAnimationFrame(function anim() {
 			const normTime = (Date.now() - start) / duration
-			elem.style.strokeDashoffset = (+length * easeOutQuad(normTime)) + +length
+			elem.style.strokeDashoffset = (length * easeOutQuad(normTime)) + length
 			if (normTime < 1)
 				requestAnimationFrame(anim)
 		})
