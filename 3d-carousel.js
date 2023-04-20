@@ -1,3 +1,5 @@
+// CSS: ./3d-carousel.css
+
 const FaceIdAttr = 'data-for'
 
 const FaceAttr = 'data-cubeface'
@@ -16,9 +18,9 @@ const FaceElement = 'img'
 const RotateDuration_ms = 740
 
 /**
- * This works by rendering a cube on top of the video during the
- * transition. i.e. it's a cube on top of an opacity=0 video for the
- * duration of the animation. It's like this, because the vpRoot
+ * This code renders a cube on top of the face-element (e.g. video) during the
+ * rotation transition. i.e. it's a cube on top of an opacity=0 face-element for the
+ * duration of the animation. It's like this, because the `.vpRoot`
  * container is fluid, if it was discrete it would have been much easier.
  */
 InitVideoGroups(document.body)
