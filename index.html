@@ -13,13 +13,13 @@
 		html, body {
 			padding: 0;
 			margin: 0;
-			background: #222;
 			color: #fff;
 			scroll-behavior: smooth;
 			font-family: Avenir Next, system-ui, sans-serif;
 			font-size: 17px;
 		}
 		body {
+			background: #222;
 			margin: 40px;
 		}
 		article {
@@ -84,13 +84,14 @@
 		#Starfield {
 			width: 90%;
 			height: 240px;
-			background: linear-gradient(#171717, #333);
+			position: absolute;
+			background: linear-gradient(#001c26, #023b67);
 		}
 
 		#InteractiveConnectionTarget {
 			width: 90%;
 			height: 240px;
-			border: 1px solid #666;
+			background: rgba(0, 0, 0, 0.2);
 			touch-action: none; /* Prevents scrolling on touch */
 		}
 		#InteractiveConnection {
@@ -99,11 +100,22 @@
 			stroke-width: 2px;
 		}
 
+		#Extra {
+			margin-top: 80px;
+		}
+
 
 		footer {
 			padding: 20px 0;
-			margin-top: 11rem;
+			margin-top: 4rem;
 			color: #999;
+		}
+
+		.pRelative {
+			position: relative;
+		}
+		.oHidden {
+			overflow: hidden;
 		}
 	</style>
 	<link href="calendar.css" rel="stylesheet">
@@ -114,7 +126,7 @@
 <h1>Web Animations</h1>
 <p>
 	Open source plain JS, CSS, HTML, SVG animations for learning web frontend development.
-	Source code at <a href="https://github.com/ericfortis/web-animations">Github</a>
+	Source code at <a href="https://github.com/ericfortis/web-animations">Github</a>.
 </p>
 
 <p class="Instructions">Click the animations to replay them.</p>
@@ -189,89 +201,104 @@
 		<h2 id="-padlock">Padlock</h2>
 		<object data="padlock.svg" type="image/svg+xml"></object>
 	</div>
+
+
+	<div class="pRelative oHidden">
+		<h2 id="-starfield">Starfield</h2>
+		<div id="Starfield"></div>
+	</div>
+
+	<div>
+		<h2 id="-draw-interactive-connection">Draw Interactive Connection</h2>
+		<svg id="InteractiveConnectionTarget">
+			<path d="" id="InteractiveConnection" />
+		</svg>
+	</div>
+
+
+	<div>
+		<h2 id="-fluid-3d-cube-carousel">Fluid 3D Cube Carousel</h2>
+		<div class="vpRoot">
+			<div class="CubeScene">
+				<div class="Cube">
+					<div class="cfLeft" id="Demo1">
+						<img alt="Left" src="media/left.svg" />
+					</div>
+					<div class="cf cfFront" id="Demo2">
+						<img alt="Front" src="media/front.svg" />
+					</div>
+					<div class="cf cfRight" id="Demo3">
+						<img alt="Right`" src="media/right.svg" />
+					</div>
+					<div class="cf cfBack" id="Demo4">
+						<img alt="Back`" src="media/back.svg" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="CubeControls">
+			<label class="cubeRadioButton cubeSelected" data-cubeface="cfLeft" data-for="Demo1">
+				<input type="radio" name="demo-cube" checked />
+				<span class="icon"></span>
+				<span class="title">Left</span>
+			</label>
+
+			<label class="cubeRadioButton" data-cubeface="cfFront" data-for="Demo2">
+				<input type="radio" name="demo-cube" />
+				<span class="icon"></span>
+				<span class="title">Front</span>
+			</label>
+
+			<label class="cubeRadioButton" data-cubeface="cfRight" data-for="Demo3">
+				<input type="radio" name="demo-cube" />
+				<span class="icon"></span>
+				<span class="title">Right</span>
+			</label>
+
+			<label class="cubeRadioButton" data-cubeface="cfBack" data-for="Demo4">
+				<input type="radio" name="demo-cube" />
+				<span class="icon"></span>
+				<span class="title">Back</span>
+			</label>
+		</div>
+	</div>
 </article>
 
 
-<h2 id="-starfield">Starfield</h2>
-<div id="Starfield"></div>
+<div id="Extra">
+	<h2>Source Code</h2>
+	<p>
+		<a href="https://github.com/ericfortis/web-animations">Github</a>
+	</p>
 
 
-<h2 id="-draw-interactive-connection">Draw Interactive Connection</h2>
-<svg id="InteractiveConnectionTarget">
-	<path d="" id="InteractiveConnection" />
-</svg>
+	<h2>See also</h2>
+	<p>
+		<a href="https://ericfortis.github.io/web-tricks/" target="_blank">Web Tricks</a>
+	</p>
+	<p>
+		<a href="https://github.com/ericfortis/web-projects" target="_blank">Web Frontend Projects</a>
+	</p>
 
 
-<h2 id="-fluid-3d-cube-carousel">Fluid 3D Cube Carousel</h2>
-<div class="vpRoot">
-	<div class="CubeScene">
-		<div class="Cube">
-			<div class="cfLeft" id="Demo1">
-				<img alt="Left" src="media/left.svg" />
-			</div>
-			<div class="cf cfFront" id="Demo2">
-				<img alt="Front" src="media/front.svg" />
-			</div>
-			<div class="cf cfRight" id="Demo3">
-				<img alt="Right`" src="media/right.svg" />
-			</div>
-			<div class="cf cfBack" id="Demo4">
-				<img alt="Back`" src="media/back.svg" />
-			</div>
-		</div>
-	</div>
+	<footer>
+		<a target="_blank" aria-label="Twitter" href="//twitter.com/efortis">
+			<svg width="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+				<path fill="#3eabff" d="M45.7 10.5a17.8 17.8 0 01-5.1 1.4A9 9 0 0044.5 7a17.8 17.8 0 01-5.7 2.2 8.9 8.9 0 00-15.1 8A25.3 25.3 0 015.3 8a8.9 8.9 0 002.8 11.9 8.9 8.9 0 01-4-1.1 9 9 0 007 8.8 9 9 0 01-4 .2 9 9 0 008.4 6.2 17.9 17.9 0 01-13.2 3.7 25.2 25.2 0 0013.6 4 25.2 25.2 0 0025.4-25.4v-1.1a18.1 18.1 0 004.4-4.7z" />
+			</svg>
+		</a>
+		<br>
+		&copy; 2023 Eric Fortis
+	</footer>
 </div>
 
-<div class="CubeControls">
-	<label class="cubeRadioButton cubeSelected" data-cubeface="cfLeft" data-for="Demo1">
-		<input type="radio" name="demo-cube" checked />
-		<span class="icon"></span>
-		<span class="title">Left</span>
-	</label>
-
-	<label class="cubeRadioButton" data-cubeface="cfFront" data-for="Demo2">
-		<input type="radio" name="demo-cube" />
-		<span class="icon"></span>
-		<span class="title">Front</span>
-	</label>
-
-	<label class="cubeRadioButton" data-cubeface="cfRight" data-for="Demo3">
-		<input type="radio" name="demo-cube" />
-		<span class="icon"></span>
-		<span class="title">Right</span>
-	</label>
-
-	<label class="cubeRadioButton" data-cubeface="cfBack" data-for="Demo4">
-		<input type="radio" name="demo-cube" />
-		<span class="icon"></span>
-		<span class="title">Back</span>
-	</label>
-</div>
-
-<h2>Source Code</h2>
-<p>
-	<a href="https://github.com/ericfortis/web-animations">Github</a>
-</p>
-
-
-<h2>See also</h2>
-<p>
-	<a href="https://ericfortis.github.io/web-tricks/" target="_blank">Web Tricks</a>
-</p>
-<p>
-	<a href="https://github.com/ericfortis/web-projects" target="_blank">Web Frontend Projects</a>
-</p>
-
-
-<footer>
-	<a target="_blank" aria-label="Twitter" href="//twitter.com/efortis">
-		<svg width="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-			<path fill="#3eabff" d="M45.7 10.5a17.8 17.8 0 01-5.1 1.4A9 9 0 0044.5 7a17.8 17.8 0 01-5.7 2.2 8.9 8.9 0 00-15.1 8A25.3 25.3 0 015.3 8a8.9 8.9 0 002.8 11.9 8.9 8.9 0 01-4-1.1 9 9 0 007 8.8 9 9 0 01-4 .2 9 9 0 008.4 6.2 17.9 17.9 0 01-13.2 3.7 25.2 25.2 0 0013.6 4 25.2 25.2 0 0025.4-25.4v-1.1a18.1 18.1 0 004.4-4.7z" />
-		</svg>
-	</a>
-	<br>
-	&copy; 2023 Eric Fortis
-</footer>
+<script>
+	if (window.location !== window.parent.location) { // is iframe
+		document.body.background = 'transparent'
+		document.getElementById('Extra').style.display = 'none'
+	}
+</script>
 
 <script src="svg-morph.js"></script>
 <script src="calendar.js"></script>
