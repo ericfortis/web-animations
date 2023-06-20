@@ -1,7 +1,6 @@
 #CalendarWrap {
 	line-height: 0;
 	height: calc((13px + 2px) * 7);
-	margin: 0 auto;
 	text-align: left;
 }
 
