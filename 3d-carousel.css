@@ -9,18 +9,18 @@ html {
 	overflow-x: hidden; /* Firefox fix for the cube when rotating */
 }
 
+.CubeCarousel {
+	position: relative;
+	width: 80%;
+	margin: 0 auto;
+}
+
 .CubeScene img {
 	display: block;
 	width: 100%;
 	height: auto;
 	transform: scale(0.99999999);
 	box-shadow: var(--shadow);
-}
-
-.vpRoot {
-	position: relative;
-	width: 80%;
-	margin: 0 auto;
 }
 
 .CubeControls {
