@@ -1,6 +1,7 @@
 #CalendarWrap {
 	line-height: 0;
 	height: calc((13px + 2px) * 7);
+	text-align: left;
 }
 
 #CalendarWrap .Day {
