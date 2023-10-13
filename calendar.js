@@ -4,12 +4,7 @@ function AnimateCalendar() {
 	const Calendar = document.getElementById('CalendarWrap')
 	Calendar.removeEventListener('click', AnimateCalendar)
 
-	setTimeout(function throttleClick() {
-		Calendar.addEventListener('click', AnimateCalendar)
-	}, 1000)
-
 	Calendar.innerHTML = ''
-
 	let nOff = 0
 	const msSpeed = 30
 	const nDays = (7 * 7 - 3)
@@ -28,6 +23,9 @@ function AnimateCalendar() {
 		}
 		frag.appendChild(day)
 	}
-
 	Calendar.appendChild(frag)
+
+	// Throttle Click
+	Promise.all(Calendar.getAnimations({ subtree: true }).map(a => a.finished)).then(() =>
+		Calendar.addEventListener('click', AnimateCalendar))
 }
