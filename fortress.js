@@ -40,9 +40,9 @@ window.addEventListener('load', function () {
 	}
 
 	function animateOpacity(element, startOpacity, endOpacity) {
-		const start = Date.now()
+		const start = performance.now()
 		requestAnimationFrame(function anim() {
-			const normTime = (Date.now() - start) / duration
+			const normTime = (performance.now() - start) / duration
 			const opacity = easeOutQuad(normTime) * (endOpacity - startOpacity) + startOpacity
 			element.setAttribute('opacity', opacity)
 			if (normTime < 1)

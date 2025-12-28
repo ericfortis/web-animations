@@ -69,9 +69,9 @@ window.addEventListener('load', function () {
 	function animateRotation(o) {
 		animate()
 		function animate() {
-			const start = Date.now()
+			const start = performance.now()
 			requestAnimationFrame(function anim() {
-				const time = Math.min(1, (Date.now() - start) / o.durationMs)
+				const time = Math.min(1, (performance.now() - start) / o.durationMs)
 				const angle = easeOutQuad(time) * (o.endRotation - o.startRotation) + o.startRotation
 				o.element.setAttribute('transform', `rotate( ${angle}, ${o.centerX}, ${o.centerY})`)
 				if (time < 1)

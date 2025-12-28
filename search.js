@@ -38,9 +38,9 @@ window.addEventListener('load', function () {
 		const elem = glass
 		animate()
 		function animate() {
-			const start = Date.now()
+			const start = performance.now()
 			requestAnimationFrame(function anim() {
-				const time = Math.min(1, (Date.now() - start) / duration)
+				const time = Math.min(1, (performance.now() - start) / duration)
 				const positionX = easeOutQuad(time) * (x1 - x0) + x0
 				const positionY = easeOutQuad(time) * (y1 - y0) + y0
 				elem.setAttribute('transform', `translate(${positionX}, ${positionY})`)

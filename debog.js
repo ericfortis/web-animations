@@ -35,10 +35,10 @@ function AnimateDebog() {
 	}, 2200)
 
 	function animateRotation(elem, startAngle, endAngle, duration) {
-		const start = Date.now()
+		const start = performance.now()
 		elem.style.opacity = 1
 		requestAnimationFrame(function anim() {
-			const normTime = (Date.now() - start) / duration
+			const normTime = (performance.now() - start) / duration
 			const angle = easeOutQuad(normTime) * (endAngle - startAngle) + startAngle
 			elem.style.transform = `rotate(${angle}deg)`
 			if (normTime < 1)
@@ -48,12 +48,12 @@ function AnimateDebog() {
 
 	function animateStrokePainting(elem, duration) {
 		const length = elem.getTotalLength()
-		const start = Date.now()
+		const start = performance.now()
 		elem.style.opacity = 1
 		elem.style.strokeDasharray = length
 		elem.style.strokeDashoffset = length
 		requestAnimationFrame(function anim() {
-			const normTime = (Date.now() - start) / duration
+			const normTime = (performance.now() - start) / duration
 			elem.style.strokeDashoffset = (length * easeOutQuad(normTime)) + length
 			if (normTime < 1)
 				requestAnimationFrame(anim)
@@ -61,9 +61,9 @@ function AnimateDebog() {
 	}
 
 	function animatePositionY(elem, startY, endY, duration) {
-		const start = Date.now()
+		const start = performance.now()
 		requestAnimationFrame(function anim() {
-			const normTime = (Date.now() - start) / duration
+			const normTime = (performance.now() - start) / duration
 			elem.style.opacity = normTime
 			const y = easeOutQuad(normTime) * (endY - startY) + startY
 			elem.style.transform = `translate(0, ${y}px)`
